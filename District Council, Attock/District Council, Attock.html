@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSER ATTOCK DATA</title>
+    <style>
+        .search-box {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pindigheb</h1>
+    <h3>District Council, Attock</h3>
+
+    <input type="text" id="search-sr" class="search-box" placeholder="Search Sr.">
+    <input type="text" id="search-cnic" class="search-box" placeholder="Search CNIC">
+
+    <table style="width:100%" id="data-table">
+        <tr>
+            <th>Sr.</th>
+            <th>CNIC</th>
+            <th>Member_Name</th>
+            <th>Mobile</th>
+            <th>UC</th>
+            <th>Postal_Address</th>
+            <th>Village_Name</th>
+        </tr>
+        <!--Here Table Head Endings-->
+        <!--From Here Table Started-->
+        <tr><td>1</td><td>6110119518951</td><td>Shakeel Ahmad</td><td><a href="tel:+923348611413">Call</a></td><td>District Council, Attock</td><td>P.O Ikhlas Tehsil Pinde Gheb District Attock</td><td>Ikhlas</td></tr>
+<tr><td>2</td><td>3710502717942</td><td>bibi karsam</td><td><a href="tel:+923295860421">Call</a></td><td>District Council, Attock</td><td>Po kisran Tehsil pindigheb dist attock</td><td>kisran</td></tr>
+<tr><td>3</td><td>3710502706535</td><td>Liaqat</td><td><a href="tel:+923126675312">Call</a></td><td>District Council, Attock</td><td>odherwal</td><td>Odherwal</td></tr>
+<tr><td>4</td><td>3710502815673</td><td>Muhammad Ijaz</td><td><a href="tel:+923109247768">Call</a></td><td>District Council, Attock</td><td>Nathial P.o Pairana Tehsil Pinde Gheb District Attock</td><td>Ikhlas</td></tr>
+<tr><td>5</td><td>3710502465607</td><td>ghulam shabir</td><td><a href="tel:+923025192448">Call</a></td><td>District Council, Attock</td><td>mohallah hariwala</td><td>PINDIGHEB</td></tr>
+<tr><td>6</td><td>3710502377239</td><td>MUHAMMAD RIAZ</td><td><a href="tel:+923035593475">Call</a></td><td>District Council, Attock</td><td>MOHALLAH GULZARABAD TEHSIL PINDIGHEB DISTRICT ATTOCK</td><td>PINDIGHEB</td></tr>
+
+
+
+
+
+
+
+
+
+<!--From Here Java Script Started-->
+    <script>
+        function filterTable(inputId, column) {
+            let input = document.getElementById(inputId);
+            let filter = input.value.toUpperCase();
+            let table = document.getElementById("data-table");
+            let tr = table.getElementsByTagName("tr");
+
+            for (let i = 1; i < tr.length; i++) {
+                let td = tr[i].getElementsByTagName("td")[column];
+                if (td) {
+                    let txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        document.getElementById("search-sr").addEventListener("keyup", function() {
+            filterTable("search-sr", 0);
+        });
+        document.getElementById("search-cnic").addEventListener("keyup", function() {
+            filterTable("search-cnic", 1);
+        });
+    </script>
+</body>
+</html>
